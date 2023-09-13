@@ -45,17 +45,15 @@ const pool = {
     },
 
     registerNewAnswer () {
-        let newAnswer = prompt(` What is your favourite programming language?\n
-        0: JavaScript\n 
-        1: Python \n   
-        2: Rust\n 
-        3: C++`);   
+        let newAnswer = prompt(`${this.question}\n ${this.options.join('\n')}\n Write the option number`);   
         
         let newAnswerNumber = parseInt(newAnswer); 
         if(newAnswer !== '' && newAnswer !== ' ' && typeof newAnswerNumber === 'number' && newAnswer >= 0 && newAnswer <= this.options.length ) {
             this.answers[newAnswer]++;
             this.displayResults();
             this.displayResults('string');
+        } else {
+           alert( `The option ${newAnswer} was not found.\nPlease enter a valid option!`);
         }
     },
    
